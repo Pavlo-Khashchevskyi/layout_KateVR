@@ -6,14 +6,231 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Title</title>
+    <title>KatVR</title>
     <link
       rel="stylesheet"
       href="./styles/main.scss"
     />
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
+  <body class="body">
+    <header class="body__section header">
+      <div class="header__top">
+        <img class="header__logo" src="images/logo.svg" alt="logo"/>
+        <nav class="header__center">
+          <ul class="header__nav">
+            <li class="header__item">
+              <a class="header__link" href="#about">About</a>
+            </li>
+            <li class="header__item">
+              <a class="header__link" href="#tech">Tech</a>
+            </li>
+            <li class="header__item">
+              <a class="header__link" href="#benefits">Benefits</a>
+            </li>
+            <li class="header__item">
+              <a class="header__link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <nav class="header__menu">
+          <button class="header__closeMenu"></button>
+          <ul class="header__menu-nav">
+            <li class="header__menu-item">
+              <a class="header__menu-link" href="#about">About</a>
+            </li>
+            <li class="header__menu-item">
+              <a class="header__menu-link" href="#tech">Tech</a>
+            </li>
+            <li class="header__menu-item">
+              <a class="header__menu-link" href="#benefits">Benefits</a>
+            </li>
+            <li class="header__menu-item">
+              <a class="header__menu-link" href="#contact">Contact</a>
+            </li>
+            <li class="header__menu-item">
+              <a class="header__menu-link" href="#contact">Language</a>
+            </li>
+            <li class="header__menu-item">
+              <a class="header__menu-link" href="#contact">FAQ</a>
+            </li>
+            <li class="header__menu-item">
+              <a class="header__menu-link" href="#contact">Help</a>
+            </li>
+          </ul>
+        </nav>
+
+        <svg class="header__btnMenu" width="30" height="14" viewBox="0 0 30 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="6.16577" y1="0.5" x2="29.9991" y2="0.5" stroke="currentColor"/>
+          <line x1="6.16577" y1="13.5" x2="29.9991" y2="13.5" stroke="currentColor"/>
+          <line class="header__btnMenu_middle-line" x1="0.75" y1="7" x2="18.0834" y2="7" stroke="currentColor" />
+        </svg>
+      </div>
+
+      <picture>
+        <source class="header__img" srcset="images/header_img_mob.png" media="(max-width: 768px)">
+
+        <source class="header__img" srcset="images/header_img_tab.png" media="(max-width: 1280ppx)">
+
+        <source class="header__img" srcset="images/header_img_des.png">
+
+        <img class="header__img" src="images/header_img_des.png" alt="header_img_des"/>
+      </picture>
+
+      <h2 class="header__title">THE NEW START OF</h2>
+      <h2 class="header__title_aqua">VR LOCOMOTION</h2>
+
+      <span class="header__text">Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!</span>
+      <span class="header__price">1200 $</span>
+
+      <button >
+        <div id="btnPlay1" class="header__btnPlay"></div>
+      </button>
+
+      <div class="header__video_wrap">
+        <div class="header__video-close">X</div>
+        <iframe width="100%" class="header__video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen autoplay>
+      </div>
+
+      <button class="header__btn">
+        Buy Now
+      </button>
+    </header>
+
+    <section class="info">
+      <div class="info__container">
+        <ul class="info__list">
+          <li class="info__item">
+            <h3>MORE THAN <span class="info__title_aqua">GAMING!</span></h3>
+            <span class="info__title_aqua">This also made for people who are interested in...</span>
+          </li>
+
+          <li class="info__item">
+            <h4>EDUCATION</h4>
+            <span class="info__text">Create aducational simulations, trainings and much more with...</span>
+          </li>
+
+          <li class="info__item">
+            <h4>REAL ESTATE</h4>
+            <span class="info__text">Desighn architectural projects in a deeply realistic environment...</span>
+          </li>
+
+          <li class="info__item">
+            <h4>FITNESS</h4>
+            <span class="info__text">Combine business with pleasure, and discover countless ways...</span>
+          </li>
+
+          <li class="info__item">
+            <h4>SOCIAL INTERACTIONS</h4>
+            <span class="info__text">Hang out with your friends in the virtual world when you can’t...</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="about__conteiner">
+        <h3 class="about__title">ABOUT <span class="about__title_aqua">PRODUCT</span></h3>
+
+        <img class="about__img" src="images/about_img.png" alt="about"/>
+
+        <span class="about__text">KAT loco is a foot-based VR locomotion system that gives complete physical control over lower-body actions, allowing you to freely walk, run, and carry out just any other movement in virtual reality.
+        </span>
+
+        <button>
+          <div id="btnPlay2" class="about__btnPlay"></div>
+        </button>
+
+        <span class="about__title_aqua">Hello,</span>
+        <h3 class="about__title">NICE TO MEET<span class="about__title_aqua"> YOU!</span></h3>
+
+        <span class="about__text">
+          KAT VR is an independent company dedicated to the research, development, and sales of VR Locomotion products and solutions. Founded in 2013, we have quickly grown to become one of the world’s leading professional suppliers of VR games’ & simulations’ equipment
+        </span>
+
+      </div>
+    </section>
+
+    <section class="tech">
+      <div class="tech__container">
+        <h3 class="tech__title">TECH<span class="tech__title_aqua"> SPECS</span></h3>
+
+        <div class="tech__img-wrap">
+          <img class="tech__img" src="images/tech.png" alt="tech" />
+        </div>
+      </div>
+    </section>
+
+    <section class="why">
+      <h3 class="why__title">WHY <span class="about__title_aqua">KAT LOCO?</span></h3>
+
+      <ul class="why__list">
+        <li class="why__item">
+          <h4>UNIVERSALLY COMPATIBLE</h4>
+          <span class="why__text">KAT Loco offers universal compatibility across all major VR headsets and platforms...</span>
+        </li>
+
+        <li class="why__item">
+          <h4>VR/PC CONTROL PANELE</h4>
+          <span class="why__text">Our Multifunctional Software allows for quick access to KAT Loco’s control panel both from...</span>
+        </li>
+
+        <li class="whyo__item">
+          <h4>WIRELESS SENSORS</h4>
+          <span class="why__text">What makes it even more advanced, KAT Loco is entirely wireless, and comes with a...</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="contact">
+      <span class="contact__sub-title">Have any questions?</span>
+      <h3 class="contact__title">GET IN <span class="contact__title_aqua">TOUCH</span></h3>
+
+      <form class="contact__form">
+        <input class="contact__input" placeholder="Name*" required />
+        <input class="contact__input" placeholder="Email*" type="email" required/>
+        <input class="contact__input" placeholder="Phone*" required />
+        <textarea class="contact__textarea" rows="5"placeholder="Message"></textarea>
+
+        <button class="contact__btn">Contact Us</button>
+      </form>
+
+      <span class="contact__text">Our manager will reply you within 15 minutes</span>
+    </section>
+
+    <footer class="footer">
+      <img class="footer__logo" src="images/logo.svg" alt="logo"/>
+
+      <ul class="footer__list">
+        <li class="footer__item">
+          <span class="footer__text">About</span>
+          <span class="footer__info">+86-0571-86105373</span>
+        </li>
+        <li class="footer__item">
+          <span class="footer__text">Tech</span>
+          <span class="footer__info">global@katvr.com</span>
+        </li>
+        <li class="footer__item">
+          <span class="footer__text">Benefits</span>
+          <span class="footer__info">overseas@katvr.com</span>
+        </li>
+        <li class="footer__item">
+          <span class="footer__text">Contact</span>
+
+          <div class="footer__icons">
+            <img src="images/icons/fb_icon.svg" alt="fb_icon"  class="footer__icon" />
+            <img src="images/icons/twiter_icon.svg" alt="twiter_icon"  class="footer__icon" />
+            <img src="images/icons/youtube_icon.svg" alt="youtube_icon"  class="footer__icon" />
+            <img src="images/icons/monky_icon.svg" alt="monky_icon"  class="footer__icon" />
+          </div>
+        </li>
+      </ul>
+    </footer>
+
     <script src="scripts/main.js"></script>
   </body>
 </html>

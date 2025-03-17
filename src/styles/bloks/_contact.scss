@@ -1,0 +1,51 @@
+.contact {
+  background-color: $backgroundBlack;
+  padding: 50px 22px 40px;
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    @extend %container;
+  }
+
+  &__title_aqua, &__sub-title {
+    @extend %aqua;
+  }
+
+  &__img-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__form {
+    padding: 38px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid $textColor;
+    outline: none;
+    color: $white;
+  }
+
+  &__textarea {
+    background: none;
+    border: none;
+    border-bottom: 1px solid $textColor;
+    outline: none;
+    color: $white;
+    resize: none;
+  }
+
+  &__text {
+    color: $textColor;
+  }
+
+  &__btn {
+    @extend %btn;
+  }
+}

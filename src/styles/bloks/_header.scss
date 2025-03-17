@@ -1,0 +1,196 @@
+.header {
+  width: 100%;
+  padding: 28px 22px 0;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: space-between;
+  background: $gradient;
+
+  &__logo {
+    cursor: pointer;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__top {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-self: center;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__center {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__menu {
+    position: absolute;
+    background-color: $darkBlue;
+    inset: 0;
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      position: relative;
+      gap: 12px;
+      color: $white;
+    }
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__link {
+    color: $white;
+    text-decoration: none;
+    opacity: 0.8;
+
+    @include hover(opacity, 1);
+
+    &::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 0;
+      background: $white;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      transition: background, width 0.3s ;
+    }
+
+    &:hover::after{
+      width: 100%;
+    }
+  }
+
+  &__menu {
+    padding-top: 28px;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 10;
+    transform: translateY(-100%);
+
+    transition: transform 0.3s;
+  }
+
+  &__closeMenu {
+    background-image: url('../images/close_btn.svg');
+    align-self: flex-end;
+    height: 20px;
+    width: 20px;
+    margin-right: 22px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  &__menu-nav {
+    display: flex;
+    flex-direction: column;
+    color: $white;
+    padding: 0;
+  }
+
+  &__menu-item {
+    padding: 12px 0;
+    cursor: pointer;
+
+    @include hover(background, $backgroundBlack);
+    @include hover(color, $contrastColor);
+  }
+
+  &__menu-link {
+    text-decoration: none;
+    color: inherit;
+    font-size: 21px;
+    padding-left: 26px;
+  }
+
+  &__btnMenu {
+    cursor: pointer;
+    color: $white;
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &_middle-line {
+      transition: transform 0.3s;
+    }
+
+    &:hover &_middle-line {
+      transform: translateX(8px);
+    }
+  }
+
+  &__title {
+    @extend %title;
+
+    &_aqua {
+      @extend %aqua;
+    }
+  }
+
+  &__text {
+    color: $textColor;
+  }
+
+  &__price {
+    text-align: center;
+    margin: 18px 0;
+    font-size: 18px;
+  }
+
+  &__btnPlay {
+    height: 89px;
+    width: 320px;
+    background-image: url('../images/default_play.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include hover(background-image, url('../images/selected_play.svg') )
+  }
+
+  &__video_wrap {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100svh;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  &__video-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
+
+  &__video {
+    max-width: 300px;
+    max-height: 240px;
+  }
+
+  &__btn {
+    @extend %btn;
+
+    position: relative;
+    top: 20px;
+  }
+}
+
