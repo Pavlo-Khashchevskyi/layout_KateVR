@@ -1,0 +1,42 @@
+.tech {
+  background-color: $backgroundBlack;
+  padding: 50px 22px 40px;
+
+  &__container {
+    @extend %container;
+
+    display: flex;
+  }
+
+  &__title_aqua {
+    @extend %aqua;
+  }
+
+  &__img-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__img-box {
+    position: relative;
+  }
+
+  &__btn {
+    position: absolute;
+
+    &--1 {
+      top: -14px;
+      left: 58px;
+    }
+
+    &--2 {
+      top: 85px;
+      left: 135px;
+    }
+
+    &--3 {
+      top: 152px;
+      left: -14px;
+    }
+  }
+}

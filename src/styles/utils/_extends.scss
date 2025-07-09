@@ -1,4 +1,80 @@
 %h1 {
-  font-family: Roboto, sans-serif;
   font-weight: 400;
+}
+
+%title {
+  font-weight: 900;
+}
+
+%aqua {
+  color: $contrastColor;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+%btn {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  width: 100%;
+  color: $white;
+  background-color: $contrastColor;
+  text-align: center;
+  border-radius: 6px;
+
+  @include hover(box-shadow, 1px 1px 6px $contrastColor);
+
+  &:disabled {
+    color: $darkGrey;
+    box-shadow: none;
+    cursor: default;
+    background-color: $darkBlue
+  }
+}
+
+%link {
+  color: $white;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+
+  @include hover(opacity, 1);
+  @include hover(color, $contrastColor);
+}
+
+%container {
+  margin: 0 auto;
+  max-width: 1280px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+%menu-box {
+  padding-top: 28px;
+  position: absolute;
+  background-color: $darkBlue;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  z-index: 10;
+  transform: translateY(-100%);
+
+  transition: transform 0.3s;
+
+  @include on-tablet {
+    max-height: 500px;
+  }
+}
+
+%menu-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  @include hover(background, $backgroundBlack);
+  @include hover(color, $contrastColor);
 }

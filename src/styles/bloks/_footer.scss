@@ -1,0 +1,110 @@
+.footer {
+  position: relative;
+  padding: 50px 22px 40px;
+
+  background: $black;
+
+  &__container {
+    @extend %container;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__left {
+    @include on-tablet {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+
+      flex: 0 0 60%;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    cursor: pointer;
+    margin-bottom: 16px;
+    width: 70px;
+
+    @include hover(transform, scale(1.2));
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__info {
+    color: $textColor;
+  }
+
+  &__list {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include on-tablet {
+      padding-top: 0;
+    }
+  }
+
+  &__text {
+    width: 50%;
+  }
+
+  &__item {
+    display: flex;
+    &--hiden {
+      @include on-tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__icon {
+    margin-right: 22px;
+  }
+
+  &__btn-up {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      position: fixed;
+      bottom: 120px;
+      right: 100px;
+      opacity: 0.5;
+
+      @include hover(opacity, 1)
+    }
+
+    transition: 0.3s all;
+
+    &--hiden {
+      display: none;
+    }
+  }
+
+  &__nav {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      gap: 12px;
+      color: $white;
+
+      @include on-tablet {
+        flex-direction: row;
+      }
+  }
+
+  &__nav-item {
+    position: relative;
+    width: max-content;
+  }
+
+  &__link {
+    @extend %link;
+  }
+}
