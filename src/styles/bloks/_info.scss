@@ -48,6 +48,8 @@
 
     &:hover {
       cursor: pointer;
+
+      @include hover(color, $contrastColor);
     }
 
     &-img {
@@ -64,6 +66,9 @@
       }
     }
 
+    &:hover .info__item-img {
+      filter: drop-shadow(5px 5px 8px white);
+    }
   }
 
   &__title_aqua {
@@ -72,9 +77,14 @@
 
   &__text {
     color: $textColor;
+    transition: color 0.3s;
 
     @include on-tablet {
       text-align: center;
     }
+  }
+
+  &:hover .info__text {
+    color: white;
   }
 }
