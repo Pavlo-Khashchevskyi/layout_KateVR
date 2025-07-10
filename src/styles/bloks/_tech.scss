@@ -19,24 +19,146 @@
 
   &__img-box {
     position: relative;
+    display: flex;
+    justify-content: center;
   }
 
-  &__btn {
+  &__img {
+    height: 300px;
+    z-index: 2;
+  }
+
+  &__img-border {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      position: absolute;
+      top: 45px;
+      left: -10px;
+    }
+  }
+
+  &__item {
     position: absolute;
+    color: $textColor;
 
-    &--1 {
-      top: -14px;
-      left: 58px;
+    &-btn {
+      position: absolute;
+      z-index: 2;
+      width: 34px;
+      height: 34px;
+      display: block;
+      background-image: url('../images/plus.svg');
+      transition: background-image 0.3s;
+
+      @include on-desktop {
+        display: none;
+      }
+
+      &--close {
+        background-image: url('../images/minus.svg');
+      }
+
+      &--1 {
+        top: -12px;
+        left: -40px;
+      }
+
+      &--2 {
+        top: 82px;
+        left: 34px;
+      }
+
+      &--3 {
+        top: 154px;
+        left: -120px;
+      }
     }
 
-    &--2 {
-      top: 85px;
-      left: 135px;
+    &-content {
+      position: absolute;
+      z-index: 3;
+      background-color: $darkBlue;
+      padding: 10px;
+      border-radius: 4px;
+      width: max-content;
+      max-width: 240px;
+      line-height: 1rem;
+      display: none;
+      font-size: 12px;
+
+      @include on-desktop {
+        background-color: transparent;
+      }
+
+      @include on-desktop {
+        display: block;
+      }
+
+      &--1 {
+        top: 33px;
+        left: -174px;
+
+        @include on-desktop {
+          top: -84px;
+          left: -498px;
+        }
+      }
+
+      &--2 {
+        top: -53px;
+        left: -61px;
+
+        @include on-desktop {
+          top: -38px;
+          left: 285px;
+        }
+      }
+
+      &--3 {
+        top: 174px;
+        left: -82px;
+
+        @include on-desktop {
+          top: 161px;
+          left: -480px;
+        }
+      }
     }
 
-    &--3 {
-      top: 152px;
-      left: -14px;
+    &-title {
+      color: white;
+      display: none;
+
+      @include on-desktop {
+        display: block;
+      }
+    }
+
+    &-line {
+      position: absolute;
+      display: none;
+
+      @include on-desktop {
+        display: block;
+      }
+
+      &--1 {
+        top: -72px;
+        left: -434px;
+      }
+
+      &--2 {
+        top: 68px;
+        left: -390px;
+      }
+
+      &--3 {
+        z-index: 1;
+        top: -22px;
+        left: 150px;
+      }
     }
   }
 }

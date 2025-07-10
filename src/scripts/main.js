@@ -233,6 +233,23 @@ const observerAboutText = new IntersectionObserver(handleAboutText, {
 
 document.querySelectorAll('.about__text').forEach(el => observerAboutText.observe(el));
 
+// Tech items
+
+const techItemsBtns = document.querySelectorAll('.tech__item-btn');
+
+const handlTechItemsBtn = (el) => {
+  const nextEl = el.nextElementSibling;
+  const isOpenTechItem = nextEl.style.display === 'block';
+  console.log('el', el)
+
+  nextEl.style.display = isOpenTechItem ? 'none' : 'block';
+  el.classList.toggle('tech__item-btn--close')
+};
+
+techItemsBtns.forEach((el) => {
+  el.addEventListener('click', () => handlTechItemsBtn(el))
+})
+
 // Slect languages on desctop
 const btnLanguagesDes = document.querySelector('.header__language-btn-des');
 const languagesListDes = document.querySelector('.header__language-list-des');
@@ -332,4 +349,25 @@ nextBtn.addEventListener('click', () => {
 prevBtn.addEventListener('click', () => {
   prevSlide();
   resetInterval();
+});
+
+
+// Reload with debounce for resize vuieport
+let lastWidth = window.innerWidth;
+let lastHeight = window.innerHeight;
+
+window.addEventListener('resize', () => {
+  const currentWidth = window.innerWidth;
+  const currentHeight = window.innerHeight;
+
+  if (currentWidth !== lastWidth || currentHeight !== lastHeight) {
+    lastWidth = currentWidth;
+    lastHeight = currentHeight;
+
+    clearTimeout(window._resizeReload);
+    window._resizeReload = setTimeout(() => {
+      console.log('reload')
+      location.reload();
+    }, 300);
+  }
 });
