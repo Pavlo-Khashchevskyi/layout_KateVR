@@ -214,6 +214,25 @@ setInterval(() => {
   indexAboutitems = (indexAboutitems + 1) % aboutItems.length;
 }, 0.3 * 1000);
 
+// About text
+const handleAboutText = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('about__text--show');
+    } else {
+      entry.target.classList.remove('about__text--show');
+    }
+  });
+};
+
+const observerAboutText = new IntersectionObserver(handleAboutText, {
+  root: null,
+  rootMargin: "-200px",
+  threshold: 0.5,
+});
+
+document.querySelectorAll('.about__text').forEach(el => observerAboutText.observe(el));
+
 // Slect languages on desctop
 const btnLanguagesDes = document.querySelector('.header__language-btn-des');
 const languagesListDes = document.querySelector('.header__language-list-des');

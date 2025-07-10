@@ -33,6 +33,11 @@
 
   &__text {
     color: $textColor;
+    transition: color 0.3s;
+
+    &--show {
+      color: white;
+    }
   }
 
   &__top {
