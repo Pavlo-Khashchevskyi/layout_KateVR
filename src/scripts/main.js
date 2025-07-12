@@ -20,7 +20,7 @@ const observerOptions = {
 
 const videoLinks = {
   btnPlay1: 'https://www.youtube.com/embed/Cl_eHeom-RI?si=pynrS329wL_h5VYF?autoplay=1',
-  btnPlay2: 'https://www.youtube.com/embed/HM137JVFsfQ?si=YXwHk1iqV5nHi4kq?autoplay=1',
+  btnPlay2: 'https://www.youtube.com/embed/kcoJUIjIXBw?si=pqh3YMjIUy9DlZzU?autoplay=1',
 }
 
 // Video player
@@ -72,7 +72,6 @@ videoWrap.addEventListener('click', () => {
 })
 
 document.body.addEventListener('keydown', (e) => {
-  console.log('---', video?.src ? 'true' : 'false')
   if (e.key === 'Escape' && video?.src !== '') {
     handleCloseVideo();
   }
@@ -128,8 +127,6 @@ const handleCloseLanguages = async () => {
   await delay(300)
 
   menu.style.transform = 'translateY(0)';
-  console.log('click')
-
 }
 
 btnLanguages.addEventListener('click', async () => {
@@ -139,7 +136,6 @@ btnLanguages.addEventListener('click', async () => {
 
   languages.style.transform = 'translateX(0)';
   document.body.style.overflow = 'hidden';
-  console.log('click2')
 })
 
 closeLanguages.addEventListener('click', (e) => {
@@ -236,19 +232,48 @@ document.querySelectorAll('.about__text').forEach(el => observerAboutText.observ
 // Tech items
 
 const techItemsBtns = document.querySelectorAll('.tech__item-btn');
+const techItemsContetns = document.querySelectorAll('.tech__item-content');
 
 const handlTechItemsBtn = (el) => {
   const nextEl = el.nextElementSibling;
   const isOpenTechItem = nextEl.style.display === 'block';
-  console.log('el', el)
 
   nextEl.style.display = isOpenTechItem ? 'none' : 'block';
-  el.classList.toggle('tech__item-btn--close')
+  el.classList.toggle('tech__item-btn--close');
+};
+
+const handleCloseTechItem = (el) => {
+  const width = window.innerWidth;
+  if (width > 1280) {
+    return;
+  }
+
+  const prevEl = el.previousElementSibling;
+
+  prevEl.classList.toggle('tech__item-btn--close');
+  el.style.display = 'none';
 };
 
 techItemsBtns.forEach((el) => {
   el.addEventListener('click', () => handlTechItemsBtn(el))
-})
+});
+
+techItemsContetns.forEach((el) => {
+  el.addEventListener('click', () => handleCloseTechItem(el))
+});
+
+// Benefits animation
+
+let indexBenItems = 0;
+const benItems = document.querySelectorAll('.benefits__item-img');
+
+setInterval(() => {
+  benItems.forEach((item) => item.classList.remove('benefits__item-img--active'));
+
+  benItems[indexBenItems].classList.add('benefits__item-img--active');
+
+  indexBenItems = (indexBenItems + 1) % benItems.length;
+}, 1.5 * 1000);
 
 // Slect languages on desctop
 const btnLanguagesDes = document.querySelector('.header__language-btn-des');
@@ -366,8 +391,39 @@ window.addEventListener('resize', () => {
 
     clearTimeout(window._resizeReload);
     window._resizeReload = setTimeout(() => {
-      console.log('reload')
       location.reload();
     }, 300);
   }
+});
+
+// animation block
+const blocks = document.querySelectorAll('.block');
+
+const options = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.1
+};
+
+const handleIntersection = (entries) => {
+  entries.forEach(entry => {
+    const {classList} = entry.target;
+    if (!classList) {
+      return;
+    }
+
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = 1;
+      entry.target.style.left = 0;
+    } else {
+      entry.target.style.opacity = 0;
+      entry.target.style.left = classList.contains('block--left') ? '-40px': '40px';
+    }
+  });
+};
+
+const observerSections = new IntersectionObserver(handleIntersection, options);
+
+blocks.forEach(section => {
+  observerSections.observe(section);
 });

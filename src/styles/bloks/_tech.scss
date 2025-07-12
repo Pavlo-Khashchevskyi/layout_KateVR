@@ -2,10 +2,26 @@
   background-color: $backgroundBlack;
   padding: 50px 22px 40px;
 
+  @include on-tablet {
+    padding: 75px 22px;
+  }
+
+  @include on-desktop {
+    padding: 100px 22px;
+  }
+
   &__container {
     @extend %container;
 
     display: flex;
+  }
+
+  &__title {
+    @include on-desktop {
+      text-align: end;
+      margin-bottom: 98px;
+      margin-right: 148px;
+    }
   }
 
   &__title_aqua {
@@ -39,9 +55,29 @@
     }
   }
 
+  &-title {
+    color: white;
+    display: none;
+    transition: color 0.3s;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
   &__item {
     position: absolute;
     color: $textColor;
+
+    &:hover {
+      cursor: pointer;
+
+      @include hover(color, white);
+    }
+
+    &:hover .tech__item-title {
+      color: $contrastColor;
+    }
 
     &-btn {
       position: absolute;
@@ -84,9 +120,15 @@
       border-radius: 4px;
       width: max-content;
       max-width: 240px;
-      line-height: 1rem;
       display: none;
       font-size: 12px;
+      line-height: 14px;
+
+      @include on-tablet {
+        font-size: 16px;
+        line-height: 20px;
+      }
+
 
       @include on-desktop {
         background-color: transparent;
@@ -100,15 +142,25 @@
         top: 33px;
         left: -174px;
 
+      @include on-tablet {
+        top: 15px;
+        left: -199px;
+      }
+
         @include on-desktop {
-          top: -84px;
-          left: -498px;
+          top: -90px;
+          left: -510px
         }
       }
 
       &--2 {
         top: -53px;
         left: -61px;
+
+      @include on-tablet {
+        top: -47px;
+        left: 65px;
+      }
 
         @include on-desktop {
           top: -38px;
@@ -121,18 +173,9 @@
         left: -82px;
 
         @include on-desktop {
-          top: 161px;
-          left: -480px;
+          top: 158px;
+          left: -502px;
         }
-      }
-    }
-
-    &-title {
-      color: white;
-      display: none;
-
-      @include on-desktop {
-        display: block;
       }
     }
 

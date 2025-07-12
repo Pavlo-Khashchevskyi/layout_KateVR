@@ -36,7 +36,11 @@
   }
 
   &__info {
-    color: $textColor;
+    a {
+      @extend %link;
+
+      color: $textColor;
+    }
   }
 
   &__list {
@@ -64,6 +68,8 @@
   }
 
   &__icon {
+    @extend %link;
+
     margin-right: 22px;
   }
 

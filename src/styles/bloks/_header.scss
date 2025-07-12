@@ -9,10 +9,15 @@
 
   @include on-desktop {
     padding: 52px 32px 0;
+    height: 100svh;
   }
 
   &__container {
     @extend %container;
+
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
   }
 
   &__btn-menu {
@@ -341,7 +346,6 @@
     cursor: pointer;
     color: red;
 
-    // @include hover(color, $contrastColor);
     @include hover(transform, scale(1.2))
   }
 
@@ -401,27 +405,6 @@
       pointer-events: auto;
     }
   }
-
-  // &__language-btn-des::after {
-  //   content: '';
-  //   height: 6px;
-  //   width: 10px;
-  //   right: -10px;
-  //   bottom: 9px;
-  //   position: absolute;
-
-  //   transition: background-color 0.3s;
-
-  //   background-color: white;
-
-  //   -webkit-mask-image: url('../images/icons/select_icon.svg');
-  //   -webkit-mask-repeat: no-repeat;
-  //   -webkit-mask-size: cover;
-
-  //   mask-image: url('../images/icons/select_icon.svg');
-  //   mask-repeat: no-repeat;
-  //   mask-size: cover;
-  // }
 
   &__language-list-des {
     display: none;
@@ -524,7 +507,7 @@
   &__btn-wrap {
     display: flex;
     justify-content: center;
-    z-index: 1;
+    z-index: 5;
     transition: 1s all;
 
     @include on-tablet {

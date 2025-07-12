@@ -3,6 +3,14 @@
 
   padding: 50px 22px 40px;
 
+  @include on-tablet {
+    padding: 75px 22px;
+  }
+
+  @include on-desktop {
+    padding: 100px 22px;
+  }
+
   &__conteiner {
     @extend %container;
   }
