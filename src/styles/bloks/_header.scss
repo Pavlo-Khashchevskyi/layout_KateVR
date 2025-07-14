@@ -130,6 +130,7 @@
     position: relative;
     display: flex;
     gap: 24px;
+    height: 28px;
   }
 
   &__logo {
@@ -262,6 +263,10 @@
     @extend %link;
 
     position: relative;
+  }
+
+  &__link-menu {
+    @extend %link-menu;
   }
 
   &__link-arrow {

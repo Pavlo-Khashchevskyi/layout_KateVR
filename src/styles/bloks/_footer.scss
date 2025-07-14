@@ -47,6 +47,7 @@
     padding-top: 30px;
     display: flex;
     flex-direction: column;
+    align-self: center;
     gap: 12px;
 
     @include on-tablet {
@@ -67,10 +68,56 @@
     }
   }
 
+  &__icons {
+    display: flex;
+    gap: 22px;
+  }
+
   &__icon {
     @extend %link;
 
-    margin-right: 22px;
+    gap: 12px;
+  }
+
+  &__link {
+    height: 15px;
+    width: 20px;
+    padding: 4px 6px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    @extend %link;
+
+
+    &--fb {
+      background-image: url('../images/icons/fb_icon.svg');
+      display: block;
+
+      @include hover(background-image, url('../images/icons/fb_icon_hover.svg'));
+      @include hover(transform, scale(1.2));
+    }
+
+    &--x {
+      background-image: url('../images/icons/twiter_icon.svg');
+
+      @include hover(background-image, url('../images/icons/twiter_icon_hover.svg'));
+      @include hover(transform, scale(1.2));
+    }
+
+    &--youtube {
+      background-image: url('../images/icons/youtube_icon.svg');
+
+      @include hover(background-image, url('../images/icons/youtube_icon_hover.svg'));
+      @include hover(transform, scale(1.2));
+    }
+
+    &--discord {
+      background-image: url('../images/icons/monky_icon.svg');
+
+      @include hover(background-image, url('../images/icons/monky_icon_hover.svg'));
+      @include hover(transform, scale(1.2));
+    }
   }
 
   &__btn-up {
@@ -110,7 +157,7 @@
     width: max-content;
   }
 
-  &__link {
-    @extend %link;
+  &__link-menu {
+    @extend %link-menu;
   }
 }

@@ -28,14 +28,14 @@
     <header class="header" id="header">
       <div class="header__container">
         <div class="header__top">
-          <div class="header__logo-box">
+          <div class="header__logo-box block block--left">
             <img
-              class="header__logo block block--left"
+              class="header__logo"
               src="images/logo.svg"
               alt="logo"
             />
 
-            <button class="header__language-btn-des block block--left">En</button>
+            <button class="header__language-btn-des">En</button>
             <ul class="header__language-list-des">
               <li class="header__language-item-des">
                 <button class="header__language-item-btn-des">En</button>
@@ -52,16 +52,16 @@
           <nav class="header__center">
             <ul class="header__nav block block--right">
               <li class="header__item">
-                <a class="header__link" href="#about">About</a>
+                <a class="header__link-menu" href="#about">About</a>
               </li>
               <li class="header__item">
-                <a class="header__link" href="#tech">Tech</a>
+                <a class="header__link-menu" href="#tech">Tech</a>
               </li>
               <li class="header__item">
-                <a class="header__link" href="#benefits">Benefits</a>
+                <a class="header__link-menu" href="#benefits">Benefits</a>
               </li>
               <li class="header__item">
-                <a class="header__link" href="#contact">Contact</a>
+                <a class="header__link-menu" href="#contact">Contact</a>
               </li>
             </ul>
           </nav>
@@ -160,7 +160,7 @@
         </div>
 
         <div class="header__main">
-          <picture class="header__img-box">
+          <picture class="header__img-box  block block--right">
             <img
               class="header__img"
               src="images/header_img_des.png"
@@ -168,7 +168,7 @@
             />
           </picture>
 
-          <div class="header__sliders">
+          <div class="header__sliders block block--right">
             <div class="header__slides">
               <img
                 src="./images/header_img_des.png"
@@ -332,7 +332,7 @@
         </div>
 
         <div class="about__bottom">
-          <div class="about__bottom-content block block--right">
+          <div class="about__bottom-content block block--left">
             <span class="about__title_aqua">Hello,</span>
             <h3 class="about__title">NICE TO MEET<span class="about__title_aqua"> YOU!</span></h3>
 
@@ -341,7 +341,7 @@
             </span>
           </div>
 
-          <div class="about__about-list">
+          <div class="about__about-list block block--right">
             <img
               class="about__about-item about__about-item--1"
               src="./images/ABOUT_US.svg"
@@ -548,7 +548,7 @@
           <div class="contact__input-wrapper">
             <input
               class="contact__input"
-              type="text" id="useremail"
+              type="email" id="useremail"
               placeholder=" "
               required
             >
@@ -595,16 +595,16 @@
 
           <ul class="footer__nav">
             <li class="footer__nav-item">
-              <a class="footer__link" href="#about">About</a>
+              <a class="footer__link-menu" href="#about">About</a>
             </li>
             <li class="footer__nav-item">
-              <a class="footer__link" href="#tech">Tech</a>
+              <a class="footer__link-menu" href="#tech">Tech</a>
             </li>
             <li class="footer__nav-item">
-              <a class="footer__link" href="#benefits">Benefits</a>
+              <a class="footer__link-menu" href="#benefits">Benefits</a>
             </li>
             <li class="footer__nav-item">
-              <a class="footer__link" href="#contact">Contact</a>
+              <a class="footer__link-menu" href="#contact">Contact</a>
             </li>
           </ul>
         </div>
@@ -621,26 +621,26 @@
           </li>
           <li class="footer__item">
             <div class="footer__icons">
-              <img
-                src="images/icons/fb_icon.svg"
-                alt="fb_icon"
-                class="footer__icon"
-              />
-              <img
-                src="images/icons/twiter_icon.svg"
-                alt="twiter_icon"
-                class="footer__icon"
-              />
-              <img
-                src="images/icons/youtube_icon.svg"
-                alt="youtube_icon"
-                class="footer__icon"
-              />
-              <img
-                src="images/icons/monky_icon.svg"
-                alt="monky_icon"
-                class="footer__icon"
-              />
+              <a
+                class="footer__link footer__link--fb"
+                href="https://www.facebook.com/"
+                target="_blank"
+              ></a>
+              <a
+                class="footer__link footer__link--x"
+                href="https://x.com/"
+                target="_blank"
+              ></a>
+              <a
+                class="footer__link footer__link--youtube"
+                href="https://www.youtube.com/@KATVR"
+                target="_blank">
+              </a>
+              <a
+                class="footer__link footer__link--discord"
+                href="https://discord.com/"
+                target="_blank"
+              ></a>
             </div>
           </li>
         </ul>

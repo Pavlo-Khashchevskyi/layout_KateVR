@@ -42,6 +42,62 @@
   @include hover(color, $contrastColor);
 }
 
+%link-menu {
+  width: 100%;
+  position: relative;
+  display: block;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: white;
+  font-family: sans-serif;
+  font-size: 14px;
+  transition: .5s;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid $contrastColor;
+    border-bottom: 2px solid $contrastColor;
+    transform: scaleY(2);
+    opacity: 0;
+    transition: .3s;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $contrastColor;
+    transform: scale(0);
+    opacity: 0;
+    transition: .3s;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: #fff;
+    &::before {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+    &::after {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+}
+
+
+
 %container {
   margin: 0 auto;
   max-width: 1280px;
