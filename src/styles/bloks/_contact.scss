@@ -64,7 +64,10 @@
     color: $white;
     resize: none;
 
-    &::placeholder { color: transparent; }
+    &::placeholder {
+      color: transparent;
+      font-size: 12px;
+    }
 
     &:focus {
       outline: none;
