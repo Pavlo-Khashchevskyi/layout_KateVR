@@ -124,7 +124,11 @@
                 <button class="header__menu-btn" data-i18n="header_nav_faq">FAQ</button>
               </li>
               <li class="header__menu-item">
-                <button class="header__menu-btn" data-i18n="header_nav_help">Help</button>
+                <button
+                  class="header__menu-btn"
+                  data-i18n="header_nav_help"
+                  id="btn-help-page-close_1"
+                >Help</button>
               </li>
             </ul>
           </nav>
@@ -267,6 +271,7 @@
                 class="header__link"
                 href="#hel"
                 data-i18n="header_nav_help"
+                id="btn-help-page-close_2"
               >Help</a>
               </li>
             </ul>
@@ -788,6 +793,46 @@
         <img src="images/icons/up.svg" alt="up" />
       </button>
     </footer>
+
+    <section class="help-page help-page--hidden">
+      <div class="help-page__content help-page__content--hidden">
+        <h3 class="help-page__title">
+          HOW CAN WE <span class="help-page__title help-page__title--aqua">HELP</span>  YOU?
+        </h3>
+
+        <span class="help-page__text">
+          Welcome to our help center. Our goal is to make the process of
+          getting acquainted and purchase as easy and pleasant as possible. Need help with your KAT VR loco product? Many product questions can be resolved by reviewing our Product Support <button class="help-page__text--aqua">FAQs</button>.
+        </span>
+
+        <span class="help-page__text">
+          Please also feel free to <button class="help-page__text--aqua" id="help-page-btn-contact-us">Contact Us</button> directly should you need anything further. We’re happy to help.
+        </span>
+
+        <ul class="help-page__list">
+          <li class="help-page__item">
+            <a class="help-page__item-link"  href="tel:+86057186105373">
+              <span class="help-page__text help-page__text--link help-page__text--aqua">Instruction manual</span>
+              <span class="help-page__info">+86-0571-86105373</span>
+            </a>
+          </li>
+          <li class="help-page__item">
+            <a class="help-page__item-link" href="mailto:global@katvr.com">
+              <span class="help-page__text help-page__text--link help-page__text--aqua">Where to go for a warranty</span>
+              <span class="help-page__info">global@katvr.com</span>
+            </a>
+          </li>
+          <li class="help-page__item">
+            <a class="help-page__item-link"  href="mailto:overseas@katvr.com">
+              <span class="help-page__text help-page__text--link help-page__text--aqua">Service Policy</span>
+              <span class="help-page__info">overseas@katvr.com</span>
+            </a>
+          </li>
+        </ul>
+
+        <button class="help-page__btn-close"></button>
+      </div>
+    </section>
 
     <script src="scripts/main.js"></script>
   </body>

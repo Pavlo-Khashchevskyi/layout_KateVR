@@ -235,6 +235,7 @@ const translations = {
 // Elements
 const html = document.querySelector("html");
 const header = document.getElementById("header");
+const contact = document.getElementById("contact");
 const footer = document.getElementById("footer");
 const btn_wrap = document.querySelector(".header__btn-wrap");
 const btnMenu = document.querySelector('.header__btn-menu');
@@ -531,8 +532,6 @@ const translatePage = (lang) => {
 
 translatePage(currentLang);
 
-
-
 const closeLanguagesList = () => {
   languagesListDes.style.display = 'none';
   languagesListDes.style.height = '0';
@@ -680,3 +679,46 @@ blocks.forEach(section => {
   observerSections.observe(section);
 });
 
+// Hepl-page
+const helpPage = document.querySelector('.help-page');
+const helpPageContainer = document.querySelector('.help-page__content');
+const goToContactUs = document.getElementById('help-page-btn-contact-us');
+
+const btnsOpenHelpPage = [
+  document.getElementById('btn-help-page-close_1'),
+  document.getElementById('btn-help-page-close_2'),
+];
+const closeBtn = document.querySelector('.help-page__btn-close');
+
+const onepHelpPage = () => {
+  const topShift  = window.scrollY;
+  console.log('topShift', topShift)
+  helpPage.style.top = topShift + 'px';
+
+
+  helpPage.classList.remove('help-page--hidden');
+  helpPageContainer.classList.remove('help-page__content--hidden');
+  document.documentElement.style.overflow  = 'hidden';
+};
+
+const closeHelpPage = () => {
+  helpPage.classList.add('help-page--hidden');
+  helpPageContainer.classList.add('help-page__content--hidden');
+  document.documentElement.style.overflow  = 'auto';
+};
+
+btnsOpenHelpPage.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    handleCloseMenu();
+    onepHelpPage();
+  })
+});
+
+closeBtn.addEventListener('click', () => {
+  closeHelpPage();
+});
+
+goToContactUs.addEventListener('click', () => {
+  closeHelpPage();
+  contact.scrollIntoView({ behavior: "smooth" });
+});
