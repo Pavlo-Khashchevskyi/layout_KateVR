@@ -1,0 +1,140 @@
+.faq-page {
+  position: absolute;
+  height: 100svh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 15;
+  transition: all 0.3s;
+
+  &--hidden {
+    transform: translateX(100%);
+  }
+
+  &__content {
+    width: 90%;
+    position: relative;
+    height: max-content;
+    background-color: $darkBlue;
+    padding: 15px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: all 0.3s;
+
+    @include on-tablet {
+      width: 60%;
+      padding: 20px 40px;
+    }
+
+    @include on-desktop {
+      width: 70%;
+      padding: 40px 60px;
+    }
+
+    &--hidden {
+      width: 100%;
+      transform: translateX(100%);
+    }
+  }
+
+  &__list {
+    max-height: 484px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 5px;
+  }
+
+  &__info {
+    color: $textColor;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $contrastColor;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+
+    &-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__title{
+    &--aqua {
+      color: $contrastColor;
+    }
+  }
+
+  &__text {
+    color: $textColor;
+
+    &--aqua {
+      color: $contrastColor;
+    }
+  }
+
+  &__btn-close {
+    position: absolute;
+    height: 30px;
+    width: 3ch;
+    background-image: url('../images/icons/close.svg');
+    background-size: contain;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    opacity: 0.8;
+
+    @include hover(opacity, 1);
+    @include hover(transform, scale(1.2));
+  }
+
+  &__expand {
+    background-image: url('../images/icons/Polygon.svg');
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 10px;
+    transition: transform 0.3s;
+
+    &--close {
+      display: block;
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__bottom {
+    height: 100px;
+    overflow: hidden;
+    transition: all 0.3s;
+
+    &--hidden {
+      height: 0;
+    }
+  }
+
+  &__more {
+    position: relative;
+    color: $contrastColor;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    &--icon {
+      position: relative;
+      background-image: url('../images/icons/Polygon.svg');
+      background-repeat: no-repeat;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}

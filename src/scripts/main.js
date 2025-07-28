@@ -1,6 +1,6 @@
 'use strict';
 
-//
+// translations
 
 const translations = {
   en: {
@@ -236,12 +236,12 @@ const translations = {
 const html = document.querySelector("html");
 const header = document.getElementById("header");
 const contact = document.getElementById("contact");
+const info = document.getElementById("info");
 const footer = document.getElementById("footer");
 const btn_wrap = document.querySelector(".header__btn-wrap");
 const btnMenu = document.querySelector('.header__btn-menu');
 
 // Options
-
 const observerOptions = {
   root: null,
   rootMargin: "0px",
@@ -460,7 +460,6 @@ const observerAboutText = new IntersectionObserver(handleAboutText, {
 document.querySelectorAll('.about__text').forEach(el => observerAboutText.observe(el));
 
 // Tech items
-
 const techItemsBtns = document.querySelectorAll('.tech__item-btn');
 const techItemsContetns = document.querySelectorAll('.tech__item-content');
 
@@ -493,7 +492,6 @@ techItemsContetns.forEach((el) => {
 });
 
 // Benefits animation
-
 let indexBenItems = 0;
 const benItems = document.querySelectorAll('.benefits__item-img');
 
@@ -582,7 +580,6 @@ languagesItems.forEach((item) => {
 })
 
 // Functions
-
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
 // Slider
@@ -626,7 +623,6 @@ prevBtn.addEventListener('click', () => {
   prevSlide();
   resetInterval();
 });
-
 
 // Reload with debounce for resize vuieport
 let lastWidth = window.innerWidth;
@@ -683,28 +679,29 @@ blocks.forEach(section => {
 const helpPage = document.querySelector('.help-page');
 const helpPageContainer = document.querySelector('.help-page__content');
 const goToContactUs = document.getElementById('help-page-btn-contact-us');
+const goToFaq = document.getElementById('help-page-btn-faq');
+
+const closeBtnForHelpPage = document.querySelector('.help-page__btn-close');
 
 const btnsOpenHelpPage = [
-  document.getElementById('btn-help-page-close_1'),
-  document.getElementById('btn-help-page-close_2'),
+  document.getElementById('btn-help-page-open_1'),
+  document.getElementById('btn-help-page-open_2'),
 ];
-const closeBtn = document.querySelector('.help-page__btn-close');
 
 const onepHelpPage = () => {
   const topShift  = window.scrollY;
-  console.log('topShift', topShift)
   helpPage.style.top = topShift + 'px';
 
 
   helpPage.classList.remove('help-page--hidden');
   helpPageContainer.classList.remove('help-page__content--hidden');
-  document.documentElement.style.overflow  = 'hidden';
+  document.documentElement.style.overflow = 'hidden';
 };
 
 const closeHelpPage = () => {
   helpPage.classList.add('help-page--hidden');
   helpPageContainer.classList.add('help-page__content--hidden');
-  document.documentElement.style.overflow  = 'auto';
+  document.documentElement.style.overflowY = 'auto';
 };
 
 btnsOpenHelpPage.forEach((btn) => {
@@ -714,11 +711,81 @@ btnsOpenHelpPage.forEach((btn) => {
   })
 });
 
-closeBtn.addEventListener('click', () => {
-  closeHelpPage();
-});
+closeBtnForHelpPage.addEventListener('click', closeHelpPage);
 
 goToContactUs.addEventListener('click', () => {
   closeHelpPage();
   contact.scrollIntoView({ behavior: "smooth" });
 });
+
+// faq-page
+const faqPage = document.querySelector('.faq-page');
+const faqPageContainer = document.querySelector('.faq-page__content');
+const closeBtnForFaqPage = document.querySelector('.faq-page__btn-close');
+const faqItems = document.querySelectorAll('.faq-page__item');
+const goToMore = document.getElementById('faq-page-btn-more');
+
+const btnsOpenFaqPage = [
+  document.getElementById('btn-faq-page-open_1'),
+  document.getElementById('btn-faq-page-open_2'),
+];
+
+const onepFaqPage = () => {
+  const topShift  = window.scrollY;
+  faqPage.style.top = topShift + 'px';
+
+
+  faqPage.classList.remove('faq-page--hidden');
+  faqPageContainer.classList.remove('faq-page__content--hidden');
+  document.documentElement.style.overflow  = 'hidden';
+};
+
+btnsOpenFaqPage.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    handleCloseMenu();
+    onepFaqPage();
+  })
+});
+
+goToFaq.addEventListener('click', () => {
+  closeHelpPage();
+  onepFaqPage();
+})
+
+goToMore.addEventListener('click', () => {
+  closeFaqPage();
+  info.scrollIntoView({ behavior: "smooth" });
+})
+
+const handleItemFaq = (el) => {
+  const expand = el.querySelector('.faq-page__expand');
+  const bottom = el.querySelector('.faq-page__bottom');
+
+  if(expand.classList.contains('faq-page__expand--close')) {
+    expand.classList.remove('faq-page__expand--close');
+    bottom.classList.remove('faq-page__bottom--hidden');
+  } else {
+    expand.classList.add('faq-page__expand--close');
+    bottom.classList.add('faq-page__bottom--hidden');
+  }
+}
+
+faqItems.forEach((el) => {
+  el.addEventListener('click', () => handleItemFaq(el));
+});
+
+const closeFaqPage = () => {
+  faqPage.classList.add('faq-page--hidden');
+  faqPageContainer.classList.add('faq-page__content--hidden');
+  document.documentElement.style.overflowY = 'auto';
+
+  faqItems.forEach((el) => {
+    const expand = el.querySelector('.faq-page__expand');
+    const bottom = el.querySelector('.faq-page__bottom');
+
+    expand.classList.add('faq-page__expand--close');
+    bottom.classList.add('faq-page__bottom--hidden');
+  })
+};
+
+closeBtnForFaqPage.addEventListener('click', closeFaqPage);
