@@ -261,23 +261,23 @@ const btnsPlay = [
 const videoWrap = document.querySelector('.header__video_wrap');
 const video = document.querySelector('.header__video');
 
-let isOpen = false;
+let isOpenVideo = false;
 
 const handlePlayVideo = (e) => {
   const {target: {id}} = e
   const link = videoLinks[id] || '';
 
   if (link) {
-    isOpen = !isOpen;
+    isOpenVideo = !isOpenVideo;
 
     const topShift  = window.scrollY
 
-    videoWrap.style.display = isOpen ? 'flex' : 'none';
+    videoWrap.style.display = isOpenVideo ? 'flex' : 'none';
     videoWrap.style.top = topShift + 'px';
     videoWrap.style.bottom = '-' + topShift + 'px';
     video.src = videoLinks[id] || '';
 
-    document.documentElement.style.overflow = isOpen ? 'hidden' : 'auto';
+    document.documentElement.style.overflow = isOpenVideo ? 'hidden' : 'auto';
     btn_wrap.style.display = 'none';
   }
 }
@@ -289,11 +289,11 @@ btnsPlay.forEach((btn) => {
 })
 
 const handleCloseVideo = () => {
-  isOpen = !isOpen;
+  isOpenVideo = !isOpenVideo;
 
   videoWrap.style.display = 'none';
   video.src = '';
-  document.documentElement.style.overflow = 'auto';
+  document.documentElement.style.overflowY = 'auto';
   btn_wrap.style.display = 'flex';
 }
 
@@ -629,6 +629,10 @@ let lastWidth = window.innerWidth;
 let lastHeight = window.innerHeight;
 
 window.addEventListener('resize', () => {
+  if (isOpenVideo) {
+    return;
+  }
+
   const currentWidth = window.innerWidth;
   const currentHeight = window.innerHeight;
 
