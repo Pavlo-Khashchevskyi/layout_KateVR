@@ -1,0 +1,261 @@
+.basket {
+  position: absolute;
+  height: 100svh;
+  width: 100%;
+  background: $gradient;
+  z-index: 16;
+  transition: all 0.3s;
+
+  &--hidden {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  &--display-none {
+    display: none;
+  }
+
+  &__container {
+    transition: all 0.3s;
+    flex: 1;
+
+    @extend %container;
+
+    height: 100%;
+
+    &--hidden {
+      transform: translateY(100%);
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 22px;
+
+    @include on-tablet {
+      padding: 38px 22px;
+    }
+
+    @include on-desktop {
+      padding: 54px 32px;
+    }
+  }
+
+  &__logo {
+    height: 28px;
+  }
+
+  &__status-list {
+    flex: 1 0;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__status {
+    color: $textColor;
+
+    &::after {
+      content: '';
+      display: block;
+      position: relative;
+      background-repeat: no-repeat;
+      background-color: $textColor;
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &--active {
+      color: $contrastColor;
+
+      &::after {
+        content: '';
+        display: block;
+        position: relative;
+        background-repeat: no-repeat;
+        background-color: $contrastColor;
+        border-radius: 50%;
+        width: 8px;
+        height: 8px;
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &__btn-close {
+    height: 30px;
+    width: 3ch;
+    background-image: url('../images/icons/close.svg');
+    background-size: contain;
+
+    cursor: pointer;
+    opacity: 0.8;
+
+    @include hover(opacity, 1);
+    @include hover(transform, scale(1.2));
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    height: 100%;
+    padding: 30px 0;
+    overflow-y: auto;
+
+    @include on-tablet {
+      flex-direction: row;
+      padding: 120px 0;
+    }
+
+    &-left {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @include on-tablet {
+        width: 50%;
+      }
+    }
+
+    &--hidden {
+      display: none;
+    }
+
+    &--2 {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__img-box {
+    display: block;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 20px;
+
+    @include on-tablet {
+      padding: 0;
+    }
+  }
+
+  &__inputs-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__inputs-block {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: space-between;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__input-wrapper {
+    position: relative;
+  }
+
+  &__input {
+    @extend %input;
+
+    &-label {
+      @extend %input-label;
+    }
+  }
+
+  &__btn {
+    @extend %btn;
+
+    margin-top: 46px;
+
+    @include on-tablet {
+      margin-top: 0;
+      width: 200px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__quantity {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &-text {
+      color: $textColor;
+    }
+
+    &-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      width: 120px;
+    }
+
+    &-minus {
+      width: 34px;
+      height: 34px;
+      display: block;
+      background-image: url('../images/minus.svg');
+    }
+
+    &-pluse {
+      width: 34px;
+      height: 34px;
+      display: block;
+      background-image: url('../images/plus.svg');
+    }
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 120px;
+
+    &-text {
+      color: $textColor;
+    }
+
+    &-amount {
+      font-size: 1.5rem;
+      color: $contrastColor;
+    }
+  }
+
+  &__title {
+    font-size: 3rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+}

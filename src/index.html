@@ -700,7 +700,7 @@
             ></textarea>
             <label
               class="contact__input-label
-              contact__input-label--textarea"
+              contact__input-label--text-area"
               for="about_text"
               data-i18n="contact_label_message"
             >Message</label>
@@ -914,6 +914,192 @@
         </button>
 
         <button class="faq-page__btn-close"></button>
+      </div>
+    </section>
+
+    <section class="basket basket--hidden basket--display-none">
+      <div class="basket__container basket__container--hidden">
+        <div class="basket__top">
+          <img
+              class="basket__logo"
+              src="images/logo.svg"
+              alt="logo"
+          />
+
+          <ul class="basket__status-list">
+            <span class="basket__status basket__status--active">Place Order & Pay</span>
+            <span class="basket__status">Order complete</span>
+          </ul>
+
+          <button class="basket__btn-close"></button>
+
+        </div>
+
+        <div class="basket__content">
+          <div class="basket__content-left">
+            <div>
+              <picture class="basket__img-box">
+                <img
+                  class="basket__img"
+                  src="images/header_img_des.png"
+                  alt="Basket image"
+                />
+              </picture>
+
+            </div>
+
+            <div class="basket__info">
+              <div class="basket__quantity">
+                <span class="basket__quantity-text">Quantity</span>
+
+                <div class="basket__quantity-content">
+                  <button class="basket__quantity-minus"></button>
+                  <span class="basket__quantity-amount">1</span>
+                  <button class="basket__quantity-pluse"></button>
+                </div>
+              </div>
+
+              <div class="basket__price">
+                <span class="basket__price-text">Price</span>
+
+                <span  class="basket__price-amount">1200$</span>
+              </div>
+            </div>
+          </div>
+
+          <form class="basket__form">
+            <div class="basket__inputs-wrap">
+              <div class="basket__inputs-block">
+                <div class="basket__input-wrapper">
+                  <input
+                    class="basket__input"
+                    type="text"
+                    id="firstName"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    class="basket__input-label"
+                    for="firstName"
+                  >First Name*</label>
+                </div>
+
+                <div class="basket__input-wrapper">
+                  <input
+                    class="basket__input"
+                    type="text"
+                    id="lastName"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    class="basket__input-label"
+                    for="lastName"
+                  >Last Name*</label>
+                </div>
+              </div>
+
+              <div class="basket__inputs-block">
+                <div class="basket__input-wrapper">
+                  <input
+                    class="basket__input"
+                    type="email"
+                    id="useremail_2"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    class="basket__input-label"
+                    for="useremail_2"
+                  >Email*</label>
+                </div>
+
+                <div class="basket__input-wrapper">
+                  <input
+                    class="basket__input"
+                    type="text"
+                    id="phone"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    class="basket__input-label"
+                    for="phone"
+                  >Phone number*</label>
+                </div>
+              </div>
+
+              <div class="basket__inputs-block">
+                <div class="basket__input-wrapper">
+                  <input
+                    class="basket__input"
+                    type="text"
+                    id="country"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    class="basket__input-label"
+                    for="country"
+                  >Country*</label>
+                </div>
+
+                <div class="basket__input-wrapper">
+                  <input
+                    class="basket__input"
+                    type="text"
+                    id="city"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    class="basket__input-label"
+                    for="city"
+                  >City*</label>
+                </div>
+              </div>
+
+              <div class="basket__inputs-block">
+                <div class="basket__input-wrapper">
+                  <input
+                    class="basket__input"
+                    type="text"
+                    id="adress_1"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    class="basket__input-label"
+                    for="adress_1"
+                  >Shipping Adress*</label>
+                </div>
+
+                <div class="basket__input-wrapper">
+                  <input
+                    class="basket__input"
+                    type="text"
+                    id="adress_2"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    class="basket__input-label"
+                    for="adress_2"
+                  >Shipping Adress</label>
+                </div>
+              </div>
+            </div>
+
+            <button class="basket__btn">Purchase</button>
+          </form>
+        </div>
+
+        <div class="basket__content basket__content--2 basket__content--hidden">
+          <h3 class="basket__title">Thank you for your order!</h3>
+          <span>Your order has been placed and is being processed. You will recive an email with the order details</span>
+
+          <button class="basket__btn" id="basket-btn">Back to homepage</button>
+        </div>
       </div>
     </section>
 

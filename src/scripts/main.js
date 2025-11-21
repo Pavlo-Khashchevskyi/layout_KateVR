@@ -323,8 +323,7 @@ const handelOpenMenu = () => {
 
 const handleCloseMenu = () => {
   menu.style.transform = 'translateY(-100%)';
-  document.documentElement.style.overflow  = 'auto';
-  document.body.style.overflowX = 'hidden';
+  document.documentElement.style.overflowY  = 'auto';
   btnMenu.classList.toggle('active');
   btn_menu_svg.classList.toggle('header__btn-menu-svg--active');
   isOpenMenu = !isOpenMenu;
@@ -793,3 +792,120 @@ const closeFaqPage = () => {
 };
 
 closeBtnForFaqPage.addEventListener('click', closeFaqPage);
+
+// basket
+
+const basket = document.querySelector('.basket');
+const basketContainer = document.querySelector('.basket__container');
+const basketContent = document.querySelector('.basket__content');
+const basketForm = document.querySelector('.basket__form');
+const btnsOpenBasket = document.querySelector('.header__btn');
+const closeBtnBasket = document.querySelector('.basket__btn-close');
+const btnMinuse = document.querySelector('.basket__quantity-minus');
+const btnPluse = document.querySelector('.basket__quantity-pluse');
+const btnToHome = document.getElementById('basket-btn');
+const amountText = document.querySelector('.basket__quantity-amount');
+const priceText = document.querySelector('.basket__price-amount');
+const statuses = document.querySelectorAll('.basket__status');
+const basketContents = document.querySelectorAll('.basket__content');
+
+let amout = 1;
+const price = 1200;
+let totalPrice = price;
+let step = 1;
+
+const getPrice = () => {
+  priceText.textContent = `${amout * price}$`;
+  totalPrice = amout * price;
+};
+
+amountText.textContent = amout;
+getPrice();
+
+const openBasket = () => {
+  const topShift  = window.scrollY;
+  basket.style.top = topShift + 'px';
+
+  basket.classList.remove('basket--display-none');
+  document.documentElement.style.overflow  = 'hidden';
+
+  setTimeout(() => {
+    basket.classList.remove('basket--hidden');
+    basketContainer.classList.remove('basket__container--hidden');
+  }, 0.1 * 1000)
+};
+
+const closeBasket = () => {
+  basket.classList.add('basket--hidden');
+  basketContainer.classList.add('basket__container--hidden');
+  document.documentElement.style.overflowY  = 'auto';
+  basketForm.reset();
+
+  setTimeout(() => {
+    basket.classList.add('basket--display-none');
+  }, 0.3 * 1000)
+};
+
+btnsOpenBasket.addEventListener('click', () => {
+  openBasket();
+});
+
+closeBtnBasket.addEventListener('click', () => {
+  closeBasket();
+});
+
+const changeAmount = {
+  add: () => {
+    amout = amout + 1;
+    amountText.textContent = amout;
+    getPrice();
+  },
+  minuse: () => {
+    if (amout <= 1) {
+      return;
+    }
+
+    amout = amout - 1;
+    amountText.textContent = amout;
+    getPrice();
+  },
+}
+
+btnMinuse.addEventListener('click', changeAmount.minuse);
+btnPluse.addEventListener('click', changeAmount.add);
+
+console.log('basketContents', basketContents)
+
+basketForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  statuses.forEach((el) => {
+    el.classList.toggle('basket__status--active')
+  });
+
+  basketContents.forEach((el2) => {
+    el2.classList.toggle('basket__content--hidden')
+  });
+
+})
+
+btnToHome.addEventListener('click', () => {
+  statuses.forEach((el) => {
+    el.classList.toggle('basket__status--active')
+  });
+
+  basketContents.forEach((el2) => {
+    el2.classList.toggle('basket__content--hidden')
+  });
+
+  closeBasket();
+});
+
+// test
+document.querySelectorAll('input').forEach(input => {
+  input.addEventListener('focus', () => {
+    if (input.value) {
+      input.style.backgroundColor = 'transparent';
+    }
+  });
+});

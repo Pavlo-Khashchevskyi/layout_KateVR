@@ -10,6 +10,7 @@
 @import './bloks/footer';
 @import './bloks/help-page';
 @import './bloks/faq-page';
+@import './bloks/basket';
 
 * {
   box-sizing: border-box;
@@ -95,15 +96,6 @@ input, textarea {
 
 ::-webkit-scrollbar-thumb:hover {
   background: $textColor;
-}
-
-// input
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 1000px white inset !important;
-  -webkit-text-fill-color: black !important;
 }
 
 // style for animations block

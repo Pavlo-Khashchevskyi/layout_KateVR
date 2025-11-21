@@ -85,6 +85,7 @@
 
   &:hover {
     color: #fff;
+
     &::before {
       transform: scaleY(1);
       opacity: 1;
@@ -133,4 +134,42 @@
 
   @include hover(background, $backgroundBlack);
   @include hover(color, $contrastColor);
+}
+
+%input {
+  width: 100%;
+  padding: 1.2rem 0 0.4rem;
+  font-size: 1rem;
+  border: none;
+  background: none;
+  border-bottom: 1px solid $textColor;
+  outline: none;
+  color: $white;
+  resize: none;
+
+  &::placeholder {
+    color: transparent;
+    font-size: 12px;
+  }
+
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid $contrastColor;
+  }
+
+  &:focus + label,
+  &:not(:placeholder-shown) + label {
+    transform: translateY(-1.2rem) scale(0.8);
+    color: $contrastColor;
+  }
+}
+
+%input-label {
+  position: absolute;
+  left: 1px;
+  top: 1.2rem;
+  color: #9e9e9e;
+  pointer-events: none;
+  transform-origin: left top;
+  transition: transform 0.2s ease-out, color 0.2s ease-out;
 }

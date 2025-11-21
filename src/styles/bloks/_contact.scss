@@ -54,48 +54,19 @@
   }
 
   &__input {
-    width: 100%;
-    padding: 1.2rem 0 0.4rem;
-    font-size: 1rem;
-    border: none;
-    background: none;
-    border-bottom: 1px solid $textColor;
-    outline: none;
-    color: $white;
-    resize: none;
+    @extend %input;
+    @include autofill(#fff, #111);
 
-    &::placeholder {
-      color: transparent;
-      font-size: 12px;
+    &-label {
+      @extend %input-label;
     }
 
-    &:focus {
-      outline: none;
-      border-bottom: 1px solid $contrastColor;
-    }
-
-    &:focus + label,
-    &:not(:placeholder-shown) + label {
-      transform: translateY(-1.2rem) scale(0.8);
-      color: $contrastColor;
-    }
-  }
-
-  &__input-label {
-    position: absolute;
-    left: 1px;
-    top: 1.2rem;
-    color: #9e9e9e;
-    pointer-events: none;
-    transform-origin: left top;
-    transition: transform 0.2s ease-out, color 0.2s ease-out;
-
-    &--textarea {
+    &--text-area {
       top: 0.1rem;
     }
   }
 
-  &__textarea {
+  &__text-area {
     background: none;
     border: none;
     border-bottom: 1px solid $textColor;

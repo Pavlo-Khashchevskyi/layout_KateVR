@@ -22,3 +22,11 @@
     @content;
   }
 }
+
+@mixin autofill($bg: #fff, $color: #000) {
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #{$bg} inset;
+    -webkit-text-fill-color: $color;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
