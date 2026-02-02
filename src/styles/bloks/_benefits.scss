@@ -74,8 +74,6 @@
     }
 
     &:hover {
-      cursor: pointer;
-
       @include hover(color, $contrastColor);
     }
 

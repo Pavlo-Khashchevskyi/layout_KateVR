@@ -43,9 +43,7 @@
     color: $textColor;
     transition: color 0.3s;
 
-    &--show {
-      color: white;
-    }
+    @include hover(color, white)
   }
 
   &__top {

@@ -27,6 +27,7 @@
   &__head {
     display: flex;
     flex-direction: column;
+    gap: 12px;
 
     @include on-tablet {
       padding-bottom: 18px;
@@ -78,8 +79,6 @@
     }
 
     &:hover {
-      cursor: pointer;
-
       @include hover(color, $contrastColor);
     }
 
