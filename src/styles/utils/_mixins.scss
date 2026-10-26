@@ -23,10 +23,21 @@
   }
 }
 
-@mixin autofill($bg: #fff, $color: #000) {
-  &:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px #{$bg} inset;
+// Keeps the input background transparent when the browser autofills it
+@mixin autofill($color: #fff) {
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
     -webkit-text-fill-color: $color;
-    transition: background-color 5000s ease-in-out 0s;
+    caret-color: $color;
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+
+  // Separate rule: browsers without :autofill would drop the whole selector list
+  &:autofill {
+    -webkit-text-fill-color: $color;
+    caret-color: $color;
+    filter: none;
+    transition: background-color 600000s 0s, color 600000s 0s;
   }
 }

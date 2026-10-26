@@ -55,7 +55,6 @@
 
   &__input {
     @extend %input;
-    @include autofill(#fff, #111);
 
     &-label {
       @extend %input-label;
